@@ -6,4 +6,11 @@ before_install:
   - docker build -t nhslucius/react_test -f Dockerfile.dev .
 
 script:
-  - docker run nhslucius/react_test npm run test -- --coverage
+  - docker run nhslucius/react_test CI=true npm run test -- --coverage
+
+# deploy:
+#   provider: react-travis-ci
+#   skip_cleanup: true
+#   script:
+#   on:
+#     brand: master 
